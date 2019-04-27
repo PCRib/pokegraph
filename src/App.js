@@ -1,14 +1,19 @@
 import React from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Pokemon from "./Pokemon";
+import MainDash from "./components/MainDash/MainDash";
+import RegionPage from "./components/RegionPage/RegionPage";
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <Pokemon />
-      </header>
+      <Router>
+        {/* <header className="App-header" /> */}
+        <Switch>
+          <Route path="/" exact component={MainDash} />
+          <Route path="/regions/:name" component={RegionPage} />
+        </Switch>
+      </Router>
     </div>
   );
 };
